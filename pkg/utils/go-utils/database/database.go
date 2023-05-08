@@ -14,7 +14,8 @@ import (
 
 var (
 	// DBConn Current Database connection
-	DBConn *gorm.DB
+	DBConn  *gorm.DB
+	DBConn2 *gorm.DB
 
 	// Err Database connection error
 	Err error
@@ -26,7 +27,7 @@ func MySQLConnect(username, password, host, databaseName string) {
 		host = fmt.Sprintf("tcp(%s)", host)
 	}
 
-	DBConn, Err = gorm.Open(mysql.Open(fmt.Sprintf("%s:%s@%s/%s?parseTime=true", username, password, host, databaseName)), &gorm.Config{})
+	DBConn2, Err = gorm.Open(mysql.Open(fmt.Sprintf("%s:%s@%s/%s?parseTime=true", username, password, host, databaseName)), &gorm.Config{})
 }
 
 // SQLiteConnect ...
